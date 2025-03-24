@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammerhead GX Browser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="theme-default">
+    <div class="sidebar">
+        <div class="logo">HGX</div>
+        <button id="newTabBtn" class="sidebar-btn"><span class="material-icons">add</span></button>
+        <button id="homeBtn" class="sidebar-btn"><span class="material-icons">home</span></button>
+        <button id="settingsBtn" class="sidebar-btn"><span class="material-icons">settings</span></button>
+    </div>
+    <div class="main-content">
+        <div class="tab-bar" id="tabBar"></div>
+        <div class="browser-container">
+            <div class="browser-header">
+                <div class="nav-buttons">
+                    <button id="backBtn"><span class="material-icons">arrow_back</span></button>
+                    <button id="forwardBtn"><span class="material-icons">arrow_forward</span></button>
+                    <button id="refreshBtn"><span class="material-icons">refresh</span></button>
+                </div>
+                <input type="text" id="urlBar" class="url-bar" placeholder="Enter URL or search">
+                <button id="goBtn" class="go-button"><span class="material-icons">search</span></button>
+            </div>
+            <div class="browser-content">
+                <iframe id="contentFrame" src="about:blank"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <h3>Themes</h3>
+            <div class="theme-selector">
+                <button class="theme-btn" data-theme="default">Default</button>
+                <button class="theme-btn" data-theme="dark">Dark</button>
+                <button class="theme-btn" data-theme="neon">Neon</button>
+                <button class="theme-btn" data-theme="light">Light</button>
+                <button class="theme-btn" data-theme="josh">JoSH</button>
+                <button class="theme-btn" data-theme="lequii">Lequii</button>
+            </div>
+            <h3>Proxy Settings</h3>
+              <select id="proxySelect" onchange="changeProxy(this.value)">
+                  <option value="google">Google (Default)</option>
+                  <option value="duckduckgo">DuckDuckGo</option>
+                  <option value="bing">Bing</option>
+              </select>
+              
+              <h3>Tab Cloaking</h3>
+              <select id="tabCloakSelect" onchange="tabSwitch(this)">
+                  <option value="Reset">Reset</option>
+                  <option value="Schoology">Schoology</option>
+                  <option value="Google Classroom">Google Classroom</option>
+                  <option value="Google Docs">Google Docs</option>
+                  <option value="Google">Google</option>
+                  <option value="Canvas">Canvas</option>
+                  <option value="Khan Academy">Khan Academy</option>
+                  <option value="Wikipedia">Wikipedia</option>
+              </select>
+              
+              <h3>Panic Keys</h3>
+              <input class="settings-input" readonly id="panic" type="text" placeholder="Enter your panic key(s)" onclick="recordKeys(this, 2000);">
+              <input class="settings-input" id="panicURL" type="text" placeholder="Enter the panic URL" onchange="changePanicUrl(this.value);">
+            <button id="closeSettingsBtn">X</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
