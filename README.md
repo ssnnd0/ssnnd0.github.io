@@ -2,6 +2,3 @@
 Personal landing page. 
 
 made usinh three js and html css and js
-
-
-mit liscence
